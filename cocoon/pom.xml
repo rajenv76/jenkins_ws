@@ -50,6 +50,16 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+	  <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <url>http://localhost:8090/manager/html</url>
+                        <server>Tomcat-server</server>
+                        <path>/cocoon</path>
+                    </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
