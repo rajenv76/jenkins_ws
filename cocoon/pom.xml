@@ -12,6 +12,14 @@
     </licenses>
 
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!--distributionManagement>
+    <repository>
+      <id>Tomcat-server</id>
+      <name>Tomcat-server</name>
+      <url>http://localhost:8090/manager/html</url>
+    </repository>
+  </distributionManagement-->
   
   <groupId>com.ust.cocoon</groupId>
   <artifactId>com.ust.cocoon</artifactId>
@@ -29,6 +37,13 @@
 		  	<type>pom</type>
 		  	<scope>provided</scope>
   		</dependency>
+		
+		<!--dependency>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat8-maven-plugin</artifactId>
+			<version>3.0-r1756463</version>
+		</dependency-->
+
   </dependencies>
 
   <build>
@@ -50,16 +65,19 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-	  <plugin>
-                    <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.2</version>
-                    <configuration>
-                        <url>http://localhost:8090/manager/html</url>
-                        <server>Tomcat-server</server>
-                        <path>/cocoon</path>
-                    </configuration>
-      </plugin>
+	  <!-- Tomcat plugin -->  
+		<plugin>  
+			<groupId>org.apache.tomcat.maven</groupId>  
+			<artifactId>tomcat7-maven-plugin</artifactId>  
+			<version>2.2</version>  
+			<configuration>  
+				<url>http://localhost:8090/manager/html</url>  
+				<server>Tomcat-server</server>  
+				<username>tomcat</username>  
+				<password>tomcat</password> 
+				<path>/cocoon</path>	
+			</configuration>   
+			</plugin> 	  
     </plugins>
   </build>
 </project>
